@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ibatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN" "http://ibatis.apache.org/dtd/ibator-config_1_0.dtd" >
+<ibatorConfiguration >
+<classPathEntry location="E:\workspaceQQX\IbatisGenerator\lib\mysql-jdbc-5.1.34-bin.jar"/>
+  <ibatorContext id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+    connectionURL="jdbc:mysql://localhost:3306/cyjr?useUnicode=true&amp;characterEncoding=utf8" 
+    userId="root" password="123456" >
+    </jdbcConnection>
+    
+     <!-- javaBean生成器 targetPackage：包名，targetProject:项目名-->
+    <javaModelGenerator targetPackage="com.tomcat.model" targetProject="IbatisGenerator/src/main/java" />
+    
+     <!-- 映射文件生成器 -->
+    <sqlMapGenerator targetPackage="com.tomcat.sqlmap" targetProject="IbatisGenerator/src/main/java" />
+    
+    <!-- dao生成器,type 指定生成dao类的模板，可选择IBATIS、SPRING、GENERIC-CI、GENERIC-SI
+    implementationPackage dao实现类的包名 -->
+    <daoGenerator targetPackage="com.tomcat.dao" targetProject="IbatisGenerator/src/main/java" type="SPRING" implementationPackage="com.tomcat.dao.impl"/>
+    
+    <!-- 表名属性映射 tableName为表名，可使用SQL通配符%和_，  domainObjectName为对应类名，如不写则默认和表名相同 -->
+    <table schema="cyjr" tableName="%" >
+       <!-- columnOverride 指定属性名称，不指定则以默认规则处理：字母先全变小写，然后去掉下划线，下划线后首字母大写 -->
+      <!-- <columnOverride column="*" property="???" /> -->
+    </table>
+  </ibatorContext>
+</ibatorConfiguration>
